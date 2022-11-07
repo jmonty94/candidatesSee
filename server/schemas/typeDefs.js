@@ -9,9 +9,22 @@ const typeDefs = gql`
         password: String
     }
 
+    type Post {
+        _id: ID
+        title: String
+        postOwner: Profile
+    }
+
+    type Auth {
+        token: ID!
+        profile: Profile
+      }
+
     type Query {
         profiles: [Profile]
         profile(profileId: ID!): Profile
+        posts: [Post]
+        post: Post
     }
 
     type Mutation {
